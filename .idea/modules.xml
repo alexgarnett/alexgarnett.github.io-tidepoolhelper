@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TidesProject.iml" filepath="$PROJECT_DIR$/.idea/TidesProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TidepoolHelper.iml" filepath="$PROJECT_DIR$/.idea/TidepoolHelper.iml" />
     </modules>
   </component>
 </project>
