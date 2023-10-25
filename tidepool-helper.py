@@ -1,5 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
+from flask import Flask, render_template, request
+import json
+
+app = Flask(__name__)
 
 
 class Tides:
@@ -36,18 +40,33 @@ def print_tide_info(tides_object: Tides):
     print('\n')
 
 
-def main():
-    location_list = ['Half-Moon-Bay-California', 'Huntington-Beach', 'Providence-Rhode-Island',
-                     'Wrightsville-Beach-North-Carolina']
-    tides_object_list = []
+@app.route('/location', methods=['GET', 'POST'])
+def location_info_page():
+    if request.method == 'POST':
+        location = request.form.get('location')
+        tides_obj = Tides(location)
+        get_tide_info(tides_obj)
+        tides_dict = {'Location': tides_obj.location, 'Low Times': tides_obj.low_times,
+                      'Low Heights': tides_obj.low_heights}
+        print(tides_dict)
+        return render_template('location_info_page.html', tides_dict=tides_dict)
 
-    for location in location_list:
-        tides_object_list.append(Tides(location))
 
-    for tides_object in tides_object_list:
-        get_tide_info(tides_object)
-        print_tide_info(tides_object)
+@app.route('/')
+def home_page():
+    # location_list = ['Half-Moon-Bay-California', 'Huntington-Beach', 'Providence-Rhode-Island',
+    #                  'Wrightsville-Beach-North-Carolina']
+    # tides_object_list = []
+    #
+    # for location in location_list:
+    #     tides_object_list.append(Tides(location))
+    #
+    # for tides_object in tides_object_list:
+    #     get_tide_info(tides_object)
+    #     print_tide_info(tides_object)
+    # print(location_info_page(location_list[0]))
+    return render_template('home_page.html')
 
 
 if __name__ == '__main__':
-    main()
+    home_page()
