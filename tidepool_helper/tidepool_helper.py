@@ -40,7 +40,7 @@ def print_tide_info(tides_object: Tides):
     print('\n')
 
 
-@app.route('/location', methods=['GET', 'POST'])
+@app.route('/location', methods=['POST'])
 def location_info_page():
     if request.method == 'POST':
         location = request.form.get('location')
@@ -54,17 +54,6 @@ def location_info_page():
 
 @app.route('/')
 def home_page():
-    # location_list = ['Half-Moon-Bay-California', 'Huntington-Beach', 'Providence-Rhode-Island',
-    #                  'Wrightsville-Beach-North-Carolina']
-    # tides_object_list = []
-    #
-    # for location in location_list:
-    #     tides_object_list.append(Tides(location))
-    #
-    # for tides_object in tides_object_list:
-    #     get_tide_info(tides_object)
-    #     print_tide_info(tides_object)
-    # print(location_info_page(location_list[0]))
     return render_template('home_page.html')
 
 
