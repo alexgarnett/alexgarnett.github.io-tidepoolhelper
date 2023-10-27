@@ -9,30 +9,25 @@ Clone into the repo https://github.com/alexgarnett/TidepoolHelper
 Install dependencies
 
 ```
-pip install requirements
-pip install bs4
+pip install -r requirements.txt
 ```
 
 # Running the App
 ```
-python .\tidepool-helper.py
+flask --app tidepool_helper/tidepool_helper.py run
 ```
 
 # Output
-The exact output depends on tides during that day, but will look similar to this
+After selecting a location from the dropdown menu, you will be redirected to the "/location" URL. 
+The exact output depends on the location selected and tides during that day, but will look similar to this.
 ```
 Half-Moon-Bay-California
 4:46PM, 0.27m
 
+```
 
-Huntington-Beach
-3:17PM, 0.55m
-
-
-Providence-Rhode-Island
-1:05PM, 0.13m
-
-
-Wrightsville-Beach-North-Carolina
-1:14PM, 0.17m
+# Testing
+In the root directory, run pytest
+```
+pytest
 ```
