@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tidepool Helper</title>
+</head>
+<p>
+    Please choose a location to get find out the best time to go tidepooling today
+</p>
+<br>
+<form action="{{ url_for('location_info_page') }}" method="post">
+    <label for="location">Location: </label>
+    <select name="location" id="location">
+        <option value="Half-Moon-Bay-California">Half Moon Bay, CA</option>
+        <option value="Huntington-Beach">Huntington Beach, CA</option>
+        <option value="Providence-Rhode-Island">Providence, RI</option>
+        <option value="Wrightsville-Beach-North-Carolina">Wrightsville Beach, NC</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+</html>

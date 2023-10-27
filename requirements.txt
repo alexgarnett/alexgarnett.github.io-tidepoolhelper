@@ -1,0 +1,6 @@
+requests==2.27.1
+bs4
+flask==2.3.3
+werkzeug==2.2.2
+requests_mock
+pytest
