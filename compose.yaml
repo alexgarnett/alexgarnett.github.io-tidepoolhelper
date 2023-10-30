@@ -1,5 +1,6 @@
 services:
   tidepool_helper:
+    image: alexgarnett/demo-app:tidepool-helper-1.0
     build:
       context: .
     ports:
