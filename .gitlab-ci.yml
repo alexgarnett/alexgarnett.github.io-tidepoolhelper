@@ -2,10 +2,10 @@ variables:
   IMAGE_NAME: alexgarnett/demo-app
   IMAGE_TAG: tidepool-helper-1.0
 
-# stages:          
-#   - build
-#   - test
-#   - deploy
+stages:          
+  - test
+  - build
+  #- deploy
 
 run_tests:   
   stage: test   
