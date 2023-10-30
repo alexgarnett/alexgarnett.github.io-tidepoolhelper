@@ -1,22 +1,36 @@
+variables:
+  IMAGE_NAME: alexgarnett/demo-app
+  IMAGE_TAG: tidepool-helper-1.0
+
 # stages:          
 #   - build
 #   - test
 #   - deploy
 
-# build:       
-#   stage: build
-#   script:
-#     - echo "Building tidepool helper"
-#     - run pip install -r requirements.txt
-
 run_tests:   
   stage: test   
   image: python:3.9-slim-buster 
   before_script:
+    - echo "Installing requirements"
     - pip install -r requirements.txt
   script:
     - echo "Running tests"
     - pytest
+
+build_image:
+  stage: build
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  before_script: 
+    - echo "Logging in to Docker Hub"
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  script:
+    - echo "Building & pushing image"
+    - docker compose build
+    - docker push $IMAGE_NAME:$IMAGE_TAG
 
 # run_lint_tests:  
 #   stage: test   
