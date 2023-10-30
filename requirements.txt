@@ -4,3 +4,4 @@ flask
 werkzeug
 requests_mock
 pytest
+pylint
