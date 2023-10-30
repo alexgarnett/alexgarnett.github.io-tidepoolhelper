@@ -12,9 +12,11 @@
 run_tests:   
   stage: test   
   image: python:3.9-slim-buster 
+  before_script:
+    - pip install -r requirements.txt
   script:
     - echo "Running tests"
-    - run pytest
+    - pytest
 
 # run_lint_tests:  
 #   stage: test   
