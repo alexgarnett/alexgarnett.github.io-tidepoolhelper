@@ -57,4 +57,4 @@ def home_page():
 
 
 if __name__ == '__main__':
-    home_page()
+    app.run(host="0.0.0.0", port=80)
