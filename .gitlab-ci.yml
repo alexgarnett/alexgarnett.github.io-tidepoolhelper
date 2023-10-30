@@ -42,8 +42,8 @@ build_image:
 deploy_app:      
   stage: deploy  
   environment: production
-  before_script:
-    - chmod 400 $SSH_KEY
+  # before_script:
+  #   - chmod 400 $SSH_KEY
   script:
     - echo "Deploying application..."
     - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@165.232.139.185 "
