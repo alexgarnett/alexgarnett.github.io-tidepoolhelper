@@ -1,0 +1,7 @@
+services:
+  tidepool_helper:
+    build:
+      context: .
+    ports:
+      - 80:80
+
