@@ -48,7 +48,7 @@ deploy_app:
     - echo "Deploying application..."
     - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@165.232.139.185 "
       docker login -u $DOCKER_USER -p $DOCKER_PASS && 
+      docker ps -aq | xargs docker stop | xargs docker rm &&
       docker run -d -p 80:80 $IMAGE_NAME:$IMAGE_TAG"
     - echo "Application successfully deployed."
 
-#docker ps -aq | xargs docker stop | xargs docker rm &&
