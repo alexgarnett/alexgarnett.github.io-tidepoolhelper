@@ -1,0 +1,44 @@
+body {
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    font-family: 'Arial', sans-serif;
+    color: #05505c;
+    background: url('../images/tidepool.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #05505c;
+}
+
+main {
+    background: rgba(255, 255, 255, 0.8);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+/* Add more styles as needed */

@@ -28,7 +28,7 @@ def get_tide_info(tides_object: Tides):
         for span in height_list:
             if span is not None:
                 tides_object.low_heights.append(str(span).strip('<span class="tide-time__height">')
-                                                .strip('</span>'))
+                                                .strip('</span>') + 'm')
 
 
 def print_tide_info(tides_object: Tides):

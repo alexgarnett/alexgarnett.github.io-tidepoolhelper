@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tidepool Helper</title>
-</head>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Tidepool Helpler {% endblock %}</h1>
 <p>
     Please choose a location to get find out the best time to go tidepooling today
 </p>
@@ -18,4 +16,4 @@
     </select>
     <input type="submit" value="Submit">
 </form>
-</html>
+{% endblock %}

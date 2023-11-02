@@ -1,5 +1,9 @@
-<p>
-    Location: {{ tides_dict['Location'] }} <br>
-    Low tide times: {{ tides_dict['Low Times'] }} <br>
-    Tide heights: {{ tides_dict['Low Heights'] }}
-</p>
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>
+        Location: {{ tides_dict['Location'] }} <br>
+        Low tide times: {{ tides_dict['Low Times'] }} <br>
+        Tide heights: {{ tides_dict['Low Heights'] }}
+    </p>
+{% endblock %}
