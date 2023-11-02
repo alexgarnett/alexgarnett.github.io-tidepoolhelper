@@ -20,7 +20,7 @@ def test_get_tide_info():
     with open('tests/mock_page.txt', 'r') as page:
         mock_page = page.read()
     expected_time = '3:35PM'
-    expected_height = '0.17'
+    expected_height = '0.17m'
     with requests_mock.Mocker() as m:
         m.get('https://www.tide-forecast.com/locations/TestLocation/tides/latest', text=mock_page)
         tides = Tides("TestLocation")
