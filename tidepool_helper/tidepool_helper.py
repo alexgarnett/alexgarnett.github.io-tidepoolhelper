@@ -11,6 +11,31 @@ class Tides:
         self.low_times = []
         self.low_heights = []
 
+    def do_location(self):
+        return self.location.replace('-', ' ')
+
+    def do_low_times(self):
+        if len(self.low_times) == 1:
+            return str(self.low_times[0])
+        elif len(self.low_times) == 0:
+            return 'No daylight low tides on this day'
+        else:
+            all_times = ''
+            for time in self.low_times:
+                all_times += time + ', '
+            return all_times[:-2]
+
+    def do_low_heights(self):
+        if len(self.low_heights) == 1:
+            return str(self.low_heights[0])
+        elif len(self.low_heights) == 0:
+            return ''
+        else:
+            all_heights = ''
+            for height in self.low_heights:
+                all_heights += height + ', '
+            return all_heights[:-2]
+
 
 def get_tide_info(tides_object: Tides):
     parsed_page = BeautifulSoup(requests.get('https://www.tide-forecast.com/locations/{}/tides/latest'
@@ -45,10 +70,10 @@ def location_info_page():
         location = request.form.get('location')
         tides_obj = Tides(location)
         get_tide_info(tides_obj)
-        tides_dict = {'Location': tides_obj.location, 'Low Times': tides_obj.low_times,
-                      'Low Heights': tides_obj.low_heights}
-        print(tides_dict)
-        return render_template('location_info_page.html', tides_dict=tides_dict)
+        return render_template('location_info_page.html',
+                               location=tides_obj.do_location(),
+                               low_times=tides_obj.do_low_times(),
+                               low_heights=tides_obj.do_low_heights())
 
 
 @app.route('/')

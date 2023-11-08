@@ -25,8 +25,8 @@ def test_get_tide_info():
         m.get('https://www.tide-forecast.com/locations/TestLocation/tides/latest', text=mock_page)
         tides = Tides("TestLocation")
         get_tide_info(tides)
-        assert tides.low_times == [expected_time]
-        assert tides.low_heights == [expected_height]
+        assert tides.do_low_times() == expected_time
+        assert tides.do_low_heights() == expected_height
 
 
 def test_home_page(client):
