@@ -1,13 +1,15 @@
 body {
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    padding: 10px 10px;
     font-family: 'Arial', sans-serif;
-    color: #05505c;
+    color: white;
     background: url('../images/tidepool.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 header {
     background: rgba(255, 255, 255, 0.8);
+    font-size: 30px;
     padding: 10px 0;
     text-align: center;
 }
@@ -24,7 +26,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #05505c;
+    color: black;
 }
 
 main {
@@ -36,9 +38,9 @@ main {
 
 footer {
     text-align: center;
+    font-size: 30px;
     padding: 20px;
     background: rgba(0, 0, 0, 0.6);
     color: white;
 }
 
-/* Add more styles as needed */

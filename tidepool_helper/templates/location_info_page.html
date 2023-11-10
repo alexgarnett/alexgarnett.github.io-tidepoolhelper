@@ -1,9 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>
-        Location: {{ location }} <br>
-        Low tide times: {{ low_times }} <br>
-        Tide heights: {{ low_heights }}
-    </p>
+    <table style="width:60%">
+        <tr>
+            <th style="width:35%" align="left">Date</th>
+            <th style="width:15%" align="left">Low Tide Times</th>
+            <th style="width:10%" align="left">Tide Heights</th>
+        </tr>
+        {% for row in tbl %}
+            <tr>
+                {% for data in row %}
+                <td>
+                    {{data}}
+                </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
