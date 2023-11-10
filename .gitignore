@@ -3,3 +3,4 @@
 .pytest_cache
 tests/.pytest_cache
 tidepool_helper/__pycache__
+important_notes.txt
