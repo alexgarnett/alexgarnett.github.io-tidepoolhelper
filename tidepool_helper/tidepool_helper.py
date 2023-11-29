@@ -39,14 +39,13 @@ class Tides:
             return all_heights[:-2]
 
 
-def _get_tide_info(tides_object: Tides):
+def get_tide_info(tides_object: Tides):
     # Get full page and scrape date tables, organizing them in a list
     parsed_page = BeautifulSoup(requests.get(
         'https://www.tide-forecast.com/locations/{}/tides/latest'
         .format(tides_object.location)).content, 'html.parser')
     all_tide_day_tables = parsed_page.find_all('div', class_='tide-day')
     for day_table in all_tide_day_tables:
-    # day_table = all_tide_day_tables[0]      # This is temporary, replace with above
 
         # Get the sunrise and sunset times
         sunrise_element = day_table.find(string="Sunrise:")
@@ -112,45 +111,19 @@ def to_time(time_str: str):
     return _datetime.time()
 
 
-def get_tide_info(tides_object: Tides):
-    parsed_page = BeautifulSoup(requests.get('https://www.tide-forecast.com/locations/{}/tides/latest'
-                                             .format(tides_object.location)).content, 'html.parser')
-    # Using the class name below exactly as shown ensures that scraped data corresponds to only
-    # low tides that occur during daylight hours on the day that the webpage is accessed
-    table_part_list = parsed_page.find_all('td', class_='tide-table__part tide-table__part--low tide-table__part--tide')
-    for part in table_part_list:
-        time_list = part.find_all('span', class_='tide-time__time tide-time__time--low')
-        for span in time_list:
-            if span is not None:
-                tides_object.low_times.append(str(span).strip('<span class="tide-time__time tide-time__time--low"> ')
-                                              .strip('</span>'))
-        height_list = part.find_all('span', class_='tide-time__height')
-        for span in height_list:
-            if span is not None:
-                tides_object.low_heights.append(str(span).strip('<span class="tide-time__height">')
-                                                .strip('</span>') + 'm')
-
-
-def print_tide_info(tides_object: Tides):
-    print(tides_object.location)
-    for i in range(0, len(tides_object.low_times)):
-        print(tides_object.low_times[i] + ', ' + tides_object.low_heights[i] + 'm')
-
-    print('\n')
-
-
 @app.route('/location', methods=['POST'])
 def location_info_page():
     if request.method == 'POST':
         location = request.form.get('location')
         tides_obj = Tides(location)
-        _get_tide_info(tides_obj)
+        get_tide_info(tides_obj)
+        location = tides_obj.do_location()
         table = []
         for i, date in enumerate(tides_obj.dates):
             table.append([tides_obj.dates[i],
                           tides_obj.low_times[i], tides_obj.low_heights[i]])
 
-        return render_template('location_info_page.html', tbl=table)
+        return render_template('location_info_page.html', tbl=table, loc=location)
 
 
 @app.route('/')
@@ -160,6 +133,4 @@ def home_page():
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=80)
-    # tides = Tides('Half-Moon-Bay-California')
-    # _get_tide_info(tides)
 
