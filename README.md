@@ -1,6 +1,6 @@
 # TidepoolHelper
 This is a personal project that I created in order to gain more exposure to front-end web technologies, back-end 
-technologies like Python's Flask framework, and CI/CD pipelines.
+technologies like Python's Flask framework, containerization, and CI/CD pipelines.
 This project started as a simple CLI webscraper. I then decided to turn it into a web app using Flask. I also thought this would be a good
 opportunity to learn about DevOps and CI/CD tools, so I containerized it and created a GitLab pipeline for automated 
 testing, building, and deployment. The GitLab repo can be found at https://gitlab.com/garnett.alexander.l/TidepoolHelper,
