@@ -12,7 +12,7 @@ but it is no longer connected to the Digital Oecan deployment server.
 It returns the time and tide height of all daylight low tides occuring for the next 30 days for either Half Moon Bay, Huntington Beach, Providence, Wrightsville Beach, or San Diego, depending on the user's choice.
 
 # Installation
-Clone into the repo https://github.com/alexgarnett/TidepoolHelper
+Clone into the repo https://github.com/alexgarnett.github.io-tidepoolhelper
 
 Install dependencies
 
