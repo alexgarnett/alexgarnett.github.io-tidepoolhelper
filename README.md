@@ -1,12 +1,13 @@
 # TidepoolHelper
+The app uses www.tide-forecast.com to help find the best times to go tidepooling.
+
+# About
 This is a personal project that I created in order to gain more exposure to front-end web technologies, back-end 
 technologies like Python's Flask framework, containerization, and CI/CD pipelines.
 This project started as a simple CLI webscraper. I then decided to turn it into a web app using Flask. I also thought this would be a good
 opportunity to learn about DevOps and CI/CD tools, so I containerized it and created a GitLab pipeline for automated 
 testing, building, and deployment. The GitLab repo can be found at https://gitlab.com/garnett.alexander.l/TidepoolHelper,
 but it is no longer connected to the Digital Oecan deployment server. 
-
-The app uses www.tide-forecast.com to help find the best times to go tidepooling.
 
 It returns the time and tide height of all daylight low tides occuring for the next 30 days for either Half Moon Bay, Huntington Beach, Providence, Wrightsville Beach, or San Diego, depending on the user's choice.
 
