@@ -2,5 +2,6 @@
 /venv
 .pytest_cache
 tests/.pytest_cache
-tidepool_helper/__pycache__
+tests/__pycache__/
+tidepool_helper/__pycache__/
 important_notes.txt
